@@ -27,8 +27,9 @@ namespace Vatsim.Vatis.Client
         public MemoryStream AtisMemoryStream => mAtisStream;
         public bool HasAtisStream => mAtisStream.Length > 0;
 
-        public RecordAtisDialog(IAppConfig appConfig)
+        public RecordAtisDialog(IAppConfig appConfig, AtisComposite mComposite)
         {
+            Console.WriteLine(mComposite.AcarsText);
             InitializeComponent();
 
             mAppConfig = appConfig;
@@ -49,6 +50,8 @@ namespace Vatsim.Vatis.Client
             if (!string.IsNullOrEmpty(mAppConfig.PlaybackDevice))
                 ddlOutputDeviceName.SelectedIndex = ddlOutputDeviceName.FindStringExact(mAppConfig.PlaybackDevice);
 
+            richTextBoxCompiledAtis.Lines = new string[] { mComposite.AcarsText };
+            
             SetInputDevice();
             SetOutputDevice();
 
@@ -252,6 +255,11 @@ namespace Vatsim.Vatis.Client
         private void btnSave_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void RecordAtisDialog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

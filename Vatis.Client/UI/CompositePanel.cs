@@ -381,7 +381,7 @@ namespace Vatsim.Vatis.Client.UI
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
-            using (var dlg = new RecordAtisDialog(mAppConfig))
+            using (var dlg = new RecordAtisDialog(mAppConfig, mComposite))
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {

@@ -39,6 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ddlOutputDeviceName = new System.Windows.Forms.ComboBox();
             this.lblMinRecordingLength = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBoxCompiledAtis = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnRecord
@@ -165,12 +167,32 @@
             this.lblMinRecordingLength.Text = "Recording must be at least 5 seconds long.";
             this.lblMinRecordingLength.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(425, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Compiled ATIS";
+            // 
+            // richTextBoxCompiledAtis
+            // 
+            this.richTextBoxCompiledAtis.Enabled = false;
+            this.richTextBoxCompiledAtis.Location = new System.Drawing.Point(425, 53);
+            this.richTextBoxCompiledAtis.Name = "richTextBoxCompiledAtis";
+            this.richTextBoxCompiledAtis.Size = new System.Drawing.Size(369, 236);
+            this.richTextBoxCompiledAtis.TabIndex = 12;
+            this.richTextBoxCompiledAtis.Text = "";
+            // 
             // RecordAtisDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 324);
+            this.ClientSize = new System.Drawing.Size(827, 324);
             this.ControlBox = false;
+            this.Controls.Add(this.richTextBoxCompiledAtis);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMinRecordingLength);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ddlOutputDeviceName);
@@ -191,6 +213,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Record ATIS";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.RecordAtisDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +232,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ddlOutputDeviceName;
         private System.Windows.Forms.Label lblMinRecordingLength;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBoxCompiledAtis;
     }
 }
